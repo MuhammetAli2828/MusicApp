@@ -33,7 +33,7 @@
             android:layout_toEndOf="@+id/imgsong"
             android:padding="6dp"
             android:textColor="#FFF"
-            android:text="Şarkı İsmi"
+            android:text="Song Name"
             android:textSize="15sp"
             android:singleLine="true"
             android:marqueeRepeatLimit="marquee_forever"

@@ -52,7 +52,7 @@ public class PlayerActivity extends AppCompatActivity {
         currentPosition = getIntent().getIntExtra("pos", 0);
 
         if (songUris == null || songUris.isEmpty()) {
-            Toast.makeText(this, "Şarkı verisi alınamadı.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Could not retrieve song data.", Toast.LENGTH_SHORT).show();
             finish();
             return;
         }
@@ -84,7 +84,7 @@ public class PlayerActivity extends AppCompatActivity {
             Uri uri = Uri.parse(songUris.get(position));
             mediaPlayer.setDataSource(getApplicationContext(), uri);
 
-            String title = songTitles != null ? songTitles.get(position) : "Şarkı";
+            String title = songTitles != null ? songTitles.get(position) : "Song";
             txtsname.setText(title);
             txtsstart.setText("00:00");
             txtsstop.setText("--:--");
@@ -101,17 +101,17 @@ public class PlayerActivity extends AppCompatActivity {
             mediaPlayer.setOnCompletionListener(mp -> playNextSong());
 
             mediaPlayer.setOnErrorListener((mp, what, extra) -> {
-                Log.e("PlayerActivity", "MediaPlayer hatası: what=" + what + " extra=" + extra);
-                Toast.makeText(this, "Bu şarkı çalınamıyor, sonrakine geçiliyor.", Toast.LENGTH_SHORT).show();
+                Log.e("PlayerActivity", "MediaPlayer error: what=" + what + " extra=" + extra);
+                Toast.makeText(this, "This song can't be played, skipping to the next one.", Toast.LENGTH_SHORT).show();
                 playNextSong();
                 return true;
             });
 
-            mediaPlayer.prepareAsync(); // Ana thread'i bloklamaz
+            mediaPlayer.prepareAsync(); // Doesn't block the main thread
 
         } catch (Exception e) {
-            Log.e("PlayerActivity", "Şarkı ayarlanamadı: " + songUris.get(position), e);
-            Toast.makeText(this, "Şarkı açılamıyor.", Toast.LENGTH_SHORT).show();
+            Log.e("PlayerActivity", "Could not set song: " + songUris.get(position), e);
+            Toast.makeText(this, "Can't open this song.", Toast.LENGTH_SHORT).show();
             playNextSong();
         }
     }

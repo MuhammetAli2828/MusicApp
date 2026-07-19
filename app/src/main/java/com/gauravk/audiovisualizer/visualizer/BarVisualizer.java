@@ -9,7 +9,7 @@ import com.gauravk.audiovisualizer.base.BaseVisualizer;
 
 public class BarVisualizer extends BaseVisualizer {
 
-    private float density = 50; // Görselleştirme yoğunluğu
+    private float density = 50; // Visualization density
 
     public BarVisualizer(Context context) {
         super(context);
@@ -28,7 +28,7 @@ public class BarVisualizer extends BaseVisualizer {
         paint = new Paint();
         paint.setStyle(Paint.Style.FILL);
         paint.setStrokeWidth(5f);
-        paint.setColor(0xFF00FF00); // Varsayılan renk (Yeşil)
+        paint.setColor(0xFF00FF00); // Default color (Green)
     }
 
     @Override

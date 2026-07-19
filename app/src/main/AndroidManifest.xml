@@ -21,19 +21,19 @@
         tools:targetApi="31">
 
 
-        <!-- PlayerActivity: Müzik çalar aktivitesi, dışarıya açılmıyor -->
+        <!-- PlayerActivity: Music player activity, not exported -->
         <activity
             android:name=".PlayerActivity"
             android:exported="false" />
 
 
-        <!-- MainActivity: Uygulamanın ana ekranı, başlatıcı aktivite olarak tanımlanmış -->
+        <!-- MainActivity: The app's main screen, defined as the launcher activity -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
 
-                <!-- Ana aktivite, uygulama başlatıldığında çalışacak olan aktiviteyi tanımlar -->
+                <!-- The main activity, defines which activity runs when the app is launched -->
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />

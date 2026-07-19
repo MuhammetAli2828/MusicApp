@@ -37,6 +37,6 @@ public abstract class BaseVisualizer extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         if (bytes == null || paint == null) return;
-        // Görselleştirme çizimi burada yapılır.
+        // Visualization drawing happens here.
     }
 }
